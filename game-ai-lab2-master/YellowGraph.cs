@@ -14,7 +14,7 @@ class YellowGraph : Graph {
 
    public YellowGraph() {
       nodes = new List<Node>();
-      adjMatrix = new int[100,100];
+      adjMatrix = new int[0,0];
    }
 
     // Try to add the node a.
@@ -28,6 +28,11 @@ class YellowGraph : Graph {
     // Do nothing if cost is non-positive.
     public void AddEdge(Node a, Node b, int c)
     {
+        int value = adjMatrix.GetLength(0);
+        if (value < nodes.Count)
+        {
+            adjMatrix = new int[nodes.Count, nodes.Count];
+        }
         if (c > 0)
         {
             int i = a.Id;

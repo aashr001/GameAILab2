@@ -32,3 +32,4 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+game-ai-lab2-master/AStar.cs
