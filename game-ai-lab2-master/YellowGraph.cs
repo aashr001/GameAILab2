@@ -14,31 +14,37 @@ class YellowGraph : Graph {
 
    public YellowGraph() {
       nodes = new List<Node>();
-      adjMatrix = new int[0,0];
+      adjMatrix = new int[100,100];
    }
 
+    // Try to add the node a.
     public void AddNode(Node a)
     {
         nodes.Add(a);
     }
 
+    // Try to add the edge a-b with cost c.
+    // If it already exists, update the cost.
+    // Do nothing if cost is non-positive.
     public void AddEdge(Node a, Node b, int c)
     {
         if (c > 0)
         {
             int i = a.Id;
             int j = b.Id;
-            Console.Write(i + "and" + j);
             adjMatrix[i,j] = c;
         }
 
     }
 
+    // Return all the nodes in this graph.
     public List<Node> Nodes()
     {
         return nodes;
     }
 
+    // Return all the neighbours on node a.
+    // i.e. nodes connected to a by an edge.
     public List<Node> Neighbours(Node a)
     {
         List<Node> NeigbhourList = new List<Node>();
@@ -55,6 +61,7 @@ class YellowGraph : Graph {
         return NeigbhourList;
     }
 
+    // Return cost of edge a-b (-1 if no such edge)
     public int Cost(Node a, Node b)
     {
         int i = a.Id;
@@ -62,10 +69,9 @@ class YellowGraph : Graph {
 
         return adjMatrix[i, j];
 
-     
     }
 
-
+    // Write a description of the graph to System.Console
     public void Write() {
       Console.WriteLine("YellowGraph");
 
