@@ -17,13 +17,33 @@ class YellowGraph : Graph {
       adjMatrix = new int[0,0];
    }
 
+    void AddNode(Node a)
+    {
+        nodes.Add(a);
+    }
+
+    void AddEdge(Node a, Node b, int c)
+    {
+
+    }
+
+    List<Node> Nodes()
+    {
+        return nodes;
+    }
+
+    List<Node> Neighbours(Node a)
+    {
+
+    }
+
+    int Cost(Node a, Node b)
+    {
+
+    }
 
 
-   // ADD MISSING METHODS HERE
-
-
-
-   public void Write() {
+    public void Write() {
       Console.WriteLine("YellowGraph");
 
       for (int i = 0; i < nodes.Count; i++) {
