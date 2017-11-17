@@ -17,51 +17,52 @@ class YellowGraph : Graph {
       adjMatrix = new int[0,0];
    }
 
-    void AddNode(Node a)
+    public void AddNode(Node a)
     {
         nodes.Add(a);
     }
 
-    void AddEdge(Node a, Node b, int c)
+    public void AddEdge(Node a, Node b, int c)
     {
         if (c > 0)
         {
-            int i = a.GetHashCode();
-            int j = b.GetHashCode();
-            adjMatrix[i][j] = c;
+            int i = a.Id;
+            int j = b.Id;
+            Console.Write(i + "and" + j);
+            adjMatrix[i,j] = c;
         }
 
     }
 
-    List<Node> Nodes()
+    public List<Node> Nodes()
     {
         return nodes;
     }
 
-    List<Node> Neighbours(Node a)
+    public List<Node> Neighbours(Node a)
     {
-        List<Nodes> NeigbhourList = new List<Node>();
-        int i = a.GetHashCode();
+        List<Node> NeigbhourList = new List<Node>();
+        int i = a.Id;
         for (int j = 0; j < nodes.Count; j++)
         {
             if (adjMatrix[i, j] > 0)
             {
-                Node node = nodes.Find(item => item.Id == j).value;
+                Node node = nodes.Find(item => item.Id == j);
                 NeigbhourList.Add(node);
             }
 
         }
+        return NeigbhourList;
     }
 
-    int Cost(Node a, Node b)
+    public int Cost(Node a, Node b)
     {
-        int i = a.GetHashCode();
-        for (int j = 0; j < nodes.Count; j++)
-        {
+        int i = a.Id;
+        int j = b.Id;
 
-            return adjMatrix[i, j];
+        return adjMatrix[i, j];
 
-        }
+     
     }
 
 
