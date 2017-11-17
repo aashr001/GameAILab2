@@ -63,7 +63,7 @@ class Pathfind {
          Node start = new Node(a);
          Node goal = new Node(b);
          
-         Pathfinder finder = new AStar(); // ***** CHANGE TO YOUR SEARCH CLASS *****
+         Pathfinder finder = new Dijsktra(); // ***** CHANGE TO YOUR SEARCH CLASS *****
          finder.SetGraph(g);
          List<Node> path = finder.FindPath(start, goal);
          if (path != null) {

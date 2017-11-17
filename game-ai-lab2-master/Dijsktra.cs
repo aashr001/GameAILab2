@@ -2,9 +2,13 @@ using System;
 using System.Collections.Generic;
 
 /*
- * An A* Pathfinder
+ * A Dijkstra algorithm Pathfinder
+ * 
+ * Dijkstra algorithm doesn't take distance into account like A* does. 
+ * So, for this algorithm I removed it from the frontier.
+ *
  */
-public class AStar : Pathfinder {
+public class Dijsktra : Pathfinder {
 
    private Graph                    graph;
    private PriorityQueue            frontier;
@@ -74,7 +78,7 @@ public class AStar : Pathfinder {
             // New node OR cheaper path to known node
             if (!visitedBefore ||  nextCost < cost[next]) {
                // Add it to the frontier
-               frontier.Enqueue(next, nextCost + Distance(next, goal));
+               frontier.Enqueue(next, nextCost);
                // Record how we got to next and it's cost
                previous[next] = current;
                cost[next] = nextCost;
@@ -85,16 +89,17 @@ public class AStar : Pathfinder {
       return found;
    }
 
-   // Straight line distance between nodes
-   public static int Distance(Node a, Node b) {
-      double x2 = Math.Pow(a.X - b.X, 2);
-      double y2 = Math.Pow(a.Y - b.Y, 2);
+    // Straight line distance between nodes
+    public static int Distance(Node a, Node b)
+    {
+        double x2 = Math.Pow(a.X - b.X, 2);
+        double y2 = Math.Pow(a.Y - b.Y, 2);
 
-      return (int) Math.Ceiling(Math.Sqrt(x2 + y2));
-   }
+        return (int)Math.Ceiling(Math.Sqrt(x2 + y2));
+    }
 
-   // Reconstruct the path start->goal from previous data structure
-   private List<Node> Path(Node start, Node goal) {
+    // Reconstruct the path start->goal from previous data structure
+    private List<Node> Path(Node start, Node goal) {
 
       List<Node> path = new List<Node>();
       Node current = goal;

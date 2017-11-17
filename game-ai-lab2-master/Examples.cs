@@ -28,7 +28,7 @@ class Examples {
    }
    
    private static void AddEdge(Graph g, Node a, Node b) {
-      AddEdge(g, a, b, AStar.Distance(a, b));
+      AddEdge(g, a, b, Dijsktra.Distance(a, b));
    }
 
 
