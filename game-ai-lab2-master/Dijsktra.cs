@@ -4,8 +4,11 @@ using System.Collections.Generic;
 /*
  * A Dijkstra algorithm Pathfinder
  * 
- * Dijkstra algorithm doesn't take distance into account like A* does. 
- * So, for this algorithm I removed it from the frontier.
+ * A* is optimal, as it uses a heuristic function and only focuses on reaching the goal node, from the current node.
+ * So, it is faster when the number of node is large.
+ * 
+ * Dijkstra algorithm is similiar, except it searches all the paths from the current node to the goal, and only chooses the one that is shortest (or has least cost). 
+ * So, for this algorithm I removed the heuristic function from the frontier.
  *
  */
 public class Dijsktra : Pathfinder {
