@@ -24,6 +24,12 @@ class YellowGraph : Graph {
 
     void AddEdge(Node a, Node b, int c)
     {
+        if (c > 0)
+        {
+            int i = a.GetHashCode();
+            int j = b.GetHashCode();
+            adjMatrix[i][j] = c;
+        }
 
     }
 
@@ -34,12 +40,28 @@ class YellowGraph : Graph {
 
     List<Node> Neighbours(Node a)
     {
+        List<Nodes> NeigbhourList = new List<Node>();
+        int i = a.GetHashCode();
+        for (int j = 0; j < nodes.Count; j++)
+        {
+            if (adjMatrix[i, j] > 0)
+            {
+                Node node = nodes.Find(item => item.Id == j).value;
+                NeigbhourList.Add(node);
+            }
 
+        }
     }
 
     int Cost(Node a, Node b)
     {
+        int i = a.GetHashCode();
+        for (int j = 0; j < nodes.Count; j++)
+        {
 
+            return adjMatrix[i, j];
+
+        }
     }
 
 
