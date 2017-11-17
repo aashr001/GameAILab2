@@ -34,7 +34,7 @@ class Pathfind {
          } else {
 
             // First argument selects the graph
-            Graph graph = new BrokenGraph(); // ***** CHANGE TO YOUR GRAPH CLASS *****
+            Graph graph = new YellowGraph(); // ***** CHANGE TO YOUR GRAPH CLASS *****
             Examples.Build(graph, g);
             graph.Write();
 
